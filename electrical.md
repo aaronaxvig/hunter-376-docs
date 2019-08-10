@@ -87,19 +87,34 @@ graph Main {
     "Engine Start Solar Charge Controller" -- "Negative Bus Bar";
     "Engine Start Solar Charge Controller" -- "Engine Start Battery"[color=red];
     "Negative Bus Bar" -- "Engine Ground Lug";
-    "Starter Relay" -- "Engine Battery Switch"[label="Supply",color=red]
+    "SR 12V In" -- "Engine Battery Switch"[label="Supply",color=red]
     subgraph cluster_engine {
         label="Engine ignition";
-        "Engine Ground Lug" -- "Key Relay";
-        "Starter Relay" -- "Aux Start Switch"[color=red];
-        "Starter Relay" -- "Aux Start Switch"[color=red];
-        "Key" -- "Key Relay";
+        subgraph cluster_starter_relay {
+            label="Starter Relay"
+            "SR 12V In"
+            "SR Coil Activate"
+            "SR Output"
+            "SR Ground (Frame)"
+        }
+        subgraph cluster_key_relay {
+            label="Key Relay"
+            "KR Coil +"
+            "KR Coil -"
+            "KR Load +"
+            "KR Load -"
+        }
+        "Aux Start Switch" -- "SR 12V In"[color=red];
+        "Aux Start Switch" -- "SR Coil Activate"[color=red];
+        "SR Ground (Frame)" -- "Engine Ground Lug";
+        "SR Output" -- "Starter"
+        "Key" -- "KR Coil +";
         "Key" -- "Alternator"[color=red];
-        "Key Relay" -- "Starter Relay"[color=red];
-        "Key Relay" -- "Starter Relay"[color=yellow];
-        "Alternator" -- "Starter Relay"[color=red];
+        "KR Coil -" -- "Engine Ground Lug"
+        "KR Load +" -- "SR 12V In"
+        "KR Load -" -- "SR Coil Activate"[color=yellow];
         "Alternator" -- "Engine Ground Lug";
-        "Starter Relay" -- "Starter";
+        "Alternator" -- "SR 12V In"[color=red];
         "Starter" -- "Engine Ground Lug"[label=Frame];
     }
 }
