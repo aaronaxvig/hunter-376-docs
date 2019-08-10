@@ -8,7 +8,7 @@ graph Main {
     "Carbon Filter" -- "Tee 1";
     "Tee 1" -- "Watermaker Flush Valve";
     "Tee 1" -- "Tee 2";
-    "Tee 2" -- "V-Berth Sink";
+    "Tee 2" -- "V-Berth Sink"[color=blue];
     "Tee 2" -- "Tee 3";
     "Tee 3" -- "Aft Supply"[color=blue];
     "Tee 3" -- "Tee 4";
@@ -16,7 +16,9 @@ graph Main {
     "Tee 4" -- "One-way Valve";
     "One-way Valve" -- "Water Heater";
     "Water Heater" -- "Tempering Valve"[color=red];
-    "Tempering Valve" -- "Aft Supply"[color=red];
+    "Tempering Valve" -- "Hot Tee"[color=red];
+    "Hot Tee" -- "Aft Supply"[color=red];
+    "Hot Tee" -- "V-Berth Sink"[color=red];
     "Aft Supply" -- "Kitchen Faucet"[color=red];
     "Aft Supply" -- "Bathroom Faucet"[color=red];
     "Aft Supply" -- "Bathroom Shower"[color=red];
