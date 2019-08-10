@@ -30,6 +30,11 @@ graph Main {
     "House Battery Switch Battery Fuse" -- "DC breaker panel"[color=orange];
     "House Battery Switch Bilge Fuse" -- "Bilge Pump Auto/Man Switch"[color=red];
     "House Battery Switch" -- "House Battery Switch Bus Bar"[color=red];
+    "Bilge Pump" -- "Bilge Splice"[color=red];
+    "Bilge Pump" -- "Negative Bus Bar";
+    "Bilge Float Switch" -- "Bilge Pump Auto/Man Switch"[label="Auto"];
+    "Bilge Float Switch" -- "Bilge Splice";
+    "Bilge Splice" -- "Bilge Pump Auto/Man Switch"[label="Manual"];
     // Windlass
     "House Battery Switch Bus Bar" -- "Windlass Breaker"[color=red];
     "Negative Bus Bar" -- "Windlass Negative Bus Bar";
@@ -81,4 +86,20 @@ graph Main {
     "Engine Start Solar Charge Controller" -- "Engine Start Solar Panel"[color=red];
     "Engine Start Solar Charge Controller" -- "Negative Bus Bar";
     "Engine Start Solar Charge Controller" -- "Engine Start Battery"[color=red];
+    "Negative Bus Bar" -- "Engine Ground Lug";
+    "Starter Relay" -- "Engine Battery Switch"[label="Supply",color=red]
+    subgraph cluster_engine {
+        label="Engine ignition";
+        "Engine Ground Lug" -- "Key Relay";
+        "Starter Relay" -- "Aux Start Switch"[color=red];
+        "Starter Relay" -- "Aux Start Switch"[color=red];
+        "Key" -- "Key Relay";
+        "Key" -- "Alternator"[color=red];
+        "Key Relay" -- "Starter Relay"[color=red];
+        "Key Relay" -- "Starter Relay"[color=yellow];
+        "Alternator" -- "Starter Relay"[color=red];
+        "Alternator" -- "Engine Ground Lug";
+        "Starter Relay" -- "Starter";
+        "Starter" -- "Engine Ground Lug"[label=Frame];
+    }
 }
