@@ -1,4 +1,5 @@
 graph Main {
+    rankdir=LR;
     "Shunt" -- "Negative Bus Bar";
     "Shunt" -- "Charger/Inverter";
     "Shunt" -- "Negative Battery Bus Bar"
@@ -61,14 +62,21 @@ graph Main {
         "Solar Panel Fore" -- "Solar Charge Controller";
     }
     "Engine Start Battery" -- "Negative Bus Bar";
-    "Engine Start Battery" -- "Engine"
+    "Engine Start Battery" -- "Winch Contactor"
     "Engine Start Battery" -- "Engine Battery Switch"[color=red];
     "Engine Battery Switch" -- "Battery Isolator"[color=red];
     "House Battery Switch Bus Bar" -- "Battery Isolator"[color=red];
     "Battery Isolator" -- "Battery Combiner Relay"[color=red];
     "Battery Isolator" -- "Battery Combiner Relay"[color=red];
-    "Engine Start Battery" -- "Engine Start Breaker"[color=red];
-    "Engine Start Breaker" -- "Engine"[color=red];
+    "Engine Start Battery" -- "Winch Breaker"[color=red];
+    subgraph cluster_electric_winch {
+        label="Electric winch"
+        "Winch Breaker" -- "Winch Contactor"[color=red];
+        "Winch Motor" -- "Winch Contactor";
+        "Winch Motor" -- "Winch Contactor"[color=red];
+        "Winch Button" -- "Winch Contactor";
+        "Winch Button" -- "Winch Contactor"[color=red];
+    }
     "Engine Start Solar Charge Controller" -- "Engine Start Solar Panel";
     "Engine Start Solar Charge Controller" -- "Engine Start Solar Panel"[color=red];
     "Engine Start Solar Charge Controller" -- "Negative Bus Bar";
