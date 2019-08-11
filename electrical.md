@@ -212,10 +212,10 @@ graph Main {
     "DCBP Negative Bus Bar" -- "PCC DC -";
     "HWFS B" -- "HWA DC +"[color=red];
     "HWA DC -" -- "DCBP Negative Bus Bar";
-    "PCC Signal Input" -- "BPFS A";
+    "PCC Signal Input" -- "Bilge Splice";
     "BPFS B" -- "Bilge Splice";
     "BPAMS Manual" -- "Bilge Splice";
     "Bilge Splice" -- "BP DC +";
     "BP DC -" -- "Negative Bus Bar";
-    "PCC Signal Input" -- "BPAMS Auto"
+    "BPFS A" -- "BPAMS Auto"
 }
