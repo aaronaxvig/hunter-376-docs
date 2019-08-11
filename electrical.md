@@ -27,14 +27,10 @@ graph Main {
         "House Battery Switch" -- "House Battery Switch Battery Fuse"[color=orange];
         "House Battery Switch" -- "House Battery Switch Bilge Fuse"[color=red];
     }
-    "House Battery Switch Battery Fuse" -- "DC breaker panel"[color=orange];
+    "House Battery Switch Battery Fuse" -- "DCBP Main Breaker"[color=orange];
     "House Battery Switch Bilge Fuse" -- "Bilge Pump Auto/Man Switch"[color=red];
+    "House Battery Switch Bilge Fuse" -- "BPAMS DC +"[color=red];
     "House Battery Switch" -- "House Battery Switch Bus Bar"[color=red];
-    "Bilge Pump" -- "Bilge Splice"[color=red];
-    "Bilge Pump" -- "Negative Bus Bar";
-    "Bilge Float Switch" -- "Bilge Pump Auto/Man Switch"[label="Auto"];
-    "Bilge Float Switch" -- "Bilge Splice";
-    "Bilge Splice" -- "Bilge Pump Auto/Man Switch"[label="Manual"];
     // Windlass
     "House Battery Switch Bus Bar" -- "Windlass Breaker"[color=red];
     "Negative Bus Bar" -- "Windlass Negative Bus Bar";
@@ -117,4 +113,59 @@ graph Main {
         "Alternator" -- "SR 12V In"[color=red];
         "Starter" -- "Engine Ground Lug"[label=Frame];
     }
+    subgraph cluster_dc_breaker_panel {
+        label="DC Breaker Panel";
+        "DCBP Main Breaker";
+        "DCBP Power Gauges and Bilge Counter/Alarm Breaker";
+        "DCBP Negative Bus Bar"
+        subgraph cluster_bilge_automan {
+            label="Bilge Pump Auto/Manual Switch"
+            "BPAMS DC +"
+            "BPAMS Auto"
+            "BPAMS Manual"
+        }
+    }
+    "DCBP Main Breaker" -- "DCBP Power Gauges and Bilge Counter/Alarm Breaker";
+    subgraph cluster_bilge_systems {
+        label="Bilge Systems"
+        subgraph cluster_pump_cycle_counter {
+            label="Pump Cycle Counter";
+            "PCC Signal Input";
+            "PCC DC +";
+            "PCC DC -";
+        }
+        subgraph cluster_high_water_float_switch {
+            label="High Water Float Switch";
+            "HWFS A";
+            "HWFS B";
+        }
+        subgraph cluster_high_water_alarm {
+            label="High Water Alarm";
+            "HWA DC +";
+            "HWA DC -";
+        }
+        subgraph cluster_bilge_pump_float_switch {
+            label="Bilge Pump Float Switch";
+            "BPFS A"
+            "BPFS B"
+        }
+        subgraph cluster_bilge_pump {
+            label="Bilge Pump";
+            "BP DC +";
+            "BP DC -";
+        }
+        "Bilge Splice"
+    }
+    "DCBP Negative Bus Bar" -- "Negative Bus Bar"
+    "DCBP Power Gauges and Bilge Counter/Alarm Breaker" -- "PCC DC +"[color=red];
+    "DCBP Power Gauges and Bilge Counter/Alarm Breaker" -- "HWFS A"[color=red];
+    "DCBP Negative Bus Bar" -- "PCC DC -";
+    "HWFS B" -- "HWA DC +"[color=red];
+    "HWA DC -" -- "DCBP Negative Bus Bar";
+    "PCC Signal Input" -- "BPFS A";
+    "BPFS B" -- "Bilge Splice";
+    "BPAMS Manual" -- "Bilge Splice";
+    "Bilge Splice" -- "BP DC +";
+    "BP DC -" -- "Negative Bus Bar";
+    "PCC Signal Input" -- "BPAMS Auto"
 }
