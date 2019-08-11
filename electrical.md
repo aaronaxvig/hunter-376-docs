@@ -116,18 +116,68 @@ graph Main {
     subgraph cluster_dc_breaker_panel {
         label="DC Breaker Panel";
         "DCBP Main Breaker";
-        "DCBP Power Gauges and Bilge Counter/Alarm Breaker";
         "DCBP Negative Bus Bar"
+        subgraph cluster_current_meter {
+            label="Current Meter";
+            "DCBP CM DC In";
+            "DCBP CM DC Out";
+        }
+        "DCBP Main Breaker" -- "DCBP CM DC In";
+        subgraph cluster_voltage_meter {
+            label="Voltage Meter";
+            "DCBP VM DC +";
+            "DCBP VM DC -";
+        }
+        subgraph cluster_dcbp_bus_a {
+            label="DCBP Bus A"
+            "DCBP Bus Bar A" -- {
+                "DCBP Breaker Panel Lights",
+                "DCBP Breaker Cabin Lights 1",
+                "DCBP Breaker Cabin Lights 2",
+                "DCBP Breaker Water Pressure",
+                "DCBP Breaker Bilge Counter/Alarm",
+                "DCBP Breaker Head Vent and Inverter Fans",
+                "DCBP Breaker Refrigerator"
+            }
+        }
+        subgraph cluster_dcbp_bus_b {
+            label="DCBP Bus B"
+            "DCBP Bus Bar B" -- {
+                "DCBP Breaker Stereo",
+                "DCBP Breaker LP Gas",
+                "DCBP Breaker Watermaker Supply",
+                "DCBP Breaker Fans",
+                "DCBP Breaker Shower Pump",
+                "DCBP Power Gauges",
+                "DCBP Breaker"
+            }
+        }
+        subgraph cluster_dcbp_bus_c {
+            label="DCBP Bus C"
+            "DCBP Bus Bar C" -- {
+                "DCBP Breaker Anchor Lights",
+                "DCBP Breaker Steaming Lights",
+                "DCBP Breaker Deck Lights",
+                "DCBP Breaker Running Lights",
+                "DCBP Breaker Instruments",
+                "DCBP Breaker VHF/AIS",
+                "DCBP Breaker Autopilot"
+            }
+        }
+        "DCBP CM DC Out" -- "DCBP Bus Bar C"
+        "DCBP Bus Bar C" -- "DCBP Bus Bar B"
+        "DCBP Bus Bar B" -- "DCBP Bus Bar A"
+        "DCBP Bus Bar B" -- "DCBP VM DC +"
+        "DCBP Negative Bus Bar" -- "DCBP VM DC -"
+    }
+    subgraph cluster_bilge_systems {
+        label="Bilge Systems"
         subgraph cluster_bilge_automan {
             label="Bilge Pump Auto/Manual Switch"
             "BPAMS DC +"
             "BPAMS Auto"
             "BPAMS Manual"
         }
-    }
-    "DCBP Main Breaker" -- "DCBP Power Gauges and Bilge Counter/Alarm Breaker";
-    subgraph cluster_bilge_systems {
-        label="Bilge Systems"
         subgraph cluster_pump_cycle_counter {
             label="Pump Cycle Counter";
             "PCC Signal Input";
@@ -157,8 +207,8 @@ graph Main {
         "Bilge Splice"
     }
     "DCBP Negative Bus Bar" -- "Negative Bus Bar"
-    "DCBP Power Gauges and Bilge Counter/Alarm Breaker" -- "PCC DC +"[color=red];
-    "DCBP Power Gauges and Bilge Counter/Alarm Breaker" -- "HWFS A"[color=red];
+    "DCBP Breaker Bilge Counter/Alarm" -- "PCC DC +"[color=red];
+    "DCBP Breaker Bilge Counter/Alarm" -- "HWFS A"[color=red];
     "DCBP Negative Bus Bar" -- "PCC DC -";
     "HWFS B" -- "HWA DC +"[color=red];
     "HWA DC -" -- "DCBP Negative Bus Bar";
