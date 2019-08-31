@@ -1,4 +1,4 @@
-![Alt text](https://g.gravizo.com/source/main?https%3A%2F%2Fraw.githubusercontent.com%2Faaronaxvig%2Fhunter-376-docs%2Fmaster%2Felectrical.md)
+![Alt text](https://g.gravizo.com/source/gravizo_electrial?https%3A%2F%2Fraw.githubusercontent.com%2Faaronaxvig%2Fhunter-376-docs%2Fmaster%2Felectrical.md)
 
 <details> 
 <summary></summary>
