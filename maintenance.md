@@ -1,0 +1,73 @@
+# Maintenance history #
+
+- 2019-04
+  - Replace all standing rigging and restep mast
+    - All new turnbuckles
+    - New ball joints in mast
+    - Wind transducer installed on top of mast
+    - Deck light replaced
+    - Flag halyard added on port side
+    - Spinnaker halyard added
+    - Topping lift cable section replaced
+  - Both reefing lines replaced
+  - Replace sheaves in aft of boom
+  - Replace end caps of jib sheet tracks
+  - Refurbish deck organizers
+  - Reseal dorades and other things under deck covers
+  - Seal around mast step
+- 2019-03
+  - Replace water pressure breaker
+  - Replace aft hose and sprayer
+  - Replace aft part of outhaul line
+  - Replace sheaves in front of boom
+  - Refurbish steering brake
+  - Replace solar panel, trim ring, and charge controller for starter battery
+  - Replace fan in salon
+  - Install water maker
+  - Install fans to vent inverter compartment
+- 2019-02
+  - Add solar panel on bimini
+  - Install new chartplotter
+  - Replace monofilament on Dutchman flaking system
+  - Replace LifeSling case
+  - Replace fuel tank sensor
+- 2019-01
+  - Replaced potable water pump
+  - Installed AIS
+  - Installed GPS receiver
+  - Add windlass
+  - Add 300' chain
+  - Add Rocna anchor
+  - Add solar panels on dinghy davits and install charge controller
+  - Replace raw water filter for heating/cooling system
+  - Replace shower pump
+  - Replace kitchen sink faucet
+  - Replace water heater
+  - Replace exhaust hose from mixing elbow to muffler
+  - Add AIS transmit and receive
+- 2018-12
+  - Setup NMEA 2000 network with new:
+    - Water tank sensor
+    - 4" displays in cockpit
+    - Maretron NMEA 2000 / USB gateway
+    - DST800 transducer
+  - Engine maintenance: change oil and filter, flush coolant, replace both fuel filters
+  - Replace packing in stuffing box
+  - Cutlass bearing replaced
+  - Paint bottom
+  - Replace lines: jib sheets, jib furling, boom vang, traveler lines
+  - Add dinghy davits
+  - Redo aft bedroom walls
+  - Electrical system overhaul
+    - Install LiFePo4 batteries, breakers, bus bars, etc.
+    - Install MultiPlus inverter/charger
+    - Install battery monitor
+    - Install Color Control GX
+  - Replace nav table light
+  - New VHF radio and remote microphone
+  - Re-bed screws for removable deck plates
+  - Changed all inside lightbulbs to LED
+  - Replaced some 120V outlets
+  - Re-bed anchor locker drain and water fill plate
+  - Remove marine head, holding tank, macerator, and associated plumbing
+  - Install composting head
