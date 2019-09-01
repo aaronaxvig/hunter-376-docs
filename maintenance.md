@@ -2,6 +2,19 @@
 
 Oil, oil filter, and fuel filter changes are mostly described in the log, not here.
 
+- 2019-09
+  - Rebedded port salon hatch
+  - Added bracing under floor above raw water pumps and in front of kitchen drawers
+- 2019-08
+  - Replaced starboard window (5 feet long one)
+  - Installed autopilot system
+  - Replaced bilge pump and float, added bilge pump run counter and high water alarm
+  - Replace anchor light with LED bulb
+  - Sew Velcro screens for all hatches
+- 2019-07
+  - Replace remote solenoid for key
+- 2019-05
+  - Sew new cockpit cushions
 - 2019-04
   - Replace all standing rigging and restep mast
     - All new turnbuckles
