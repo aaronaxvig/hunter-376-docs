@@ -1,5 +1,7 @@
 # Maintenance history #
 
+Oil, oil filter, and fuel filter changes are mostly described in the log, not here.
+
 - 2019-04
   - Replace all standing rigging and restep mast
     - All new turnbuckles
@@ -71,3 +73,33 @@
   - Re-bed anchor locker drain and water fill plate
   - Remove marine head, holding tank, macerator, and associated plumbing
   - Install composting head
+
+## Below here is maintenance reported by the prior owner ##
+
+Also noted by them: "Regular monthly check on the bottom paint, zincs, and cleaning by Whiteline Diving".  Bottom was in poor condition when hauled out.
+
+- 2018
+  - Replaced main charging battery
+  - Had gel oat blemishes in cockpit and along cabin top and lazarette lockers of boat repaired with new gelcoat and paint
+  - Replaced shore power cords
+- 2017
+  - Had Sunbrella hatch covers, pulpit seat covers, and backrest for pulpit seat made
+  - Toe rail completely replaced
+  - Replaced gear shifter and gear shifter cable
+  - Installed new outside cockpit speakers
+  - Replaced circuit board that shows battery charging
+- 2016
+  - Installed Digital Comfort Control for AC
+  - Checked AC and found leak, fixed and recharged refrigerant
+  - Bottom paint by Charleston City Boatyard
+  - Repaired Genoa (UK Sailmakers)
+  - Ran new genoa halyard
+  - Replaced main halyard, mainsheet, genoa sheets, and traveler
+  - Replaced Windex at mast head
+  - Repaired port cabin top winch
+  - Replace engine impeller
+- 2015
+  - Had engine cleaned, completely serviced, oil change
+  - Repaired window on starboard side and replaced two nav lights
+  - Replaced VHF radio
+
