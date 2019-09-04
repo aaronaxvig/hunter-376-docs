@@ -15,6 +15,7 @@ Oil, oil filter, and fuel filter changes are mostly described in the log, not he
   - Replace remote solenoid for key
 - 2019-05
   - Sew new cockpit cushions
+  - Install engine access hatch in bathroom wall
 - 2019-04
   - Replace all standing rigging and restep mast
     - All new turnbuckles
