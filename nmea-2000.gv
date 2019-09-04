@@ -1,0 +1,26 @@
+graph NMEA2000 {
+    subgraph cluster_nav_station_t_connectors {
+        label="Nav Station T Connectors"
+        "NS End 1" -- "NS T1" -- "NS T2" -- "NS T3"-- "NS T4" -- "NS T5" -- "NS T6" -- "NS End 2";
+    }
+    subgraph cluster_binnacle_t_connectors {
+        label="Binnacle T Connectors"
+        "Bin End 1" -- "Bin T1" -- "Bin T2" -- "Bin T3" -- "Bin T4" -- "Bin T5" -- "Bin T6" -- "Bin T7" -- "Bin End 2";
+    }
+    "Terminator 1" -- "NS End 1";
+    "NS T1" -- "Fresh Water Tank Level Sensor";
+    "NS T2" -- "Depth/Speed/Temp Sensor";
+    "NS T3" -- "Power In";
+    "NS T4" -- "VHF Radio";
+    "NS T5" -- "AIS Radio";
+    "NS T6" -- "Wind Sensor";
+    "NS End 2" -- "Bin End 1";
+    "Bin T1" -- "Chartplotter";
+    "Bin T2" -- "Wind Display";
+    "Bin T3" -- "Small Display 1";
+    "Bin T4" -- "Small Display 2";
+    "Bin T5" -- "Autopilot Display";
+    "Bin T6" -- "Autopilot Computer";
+    "Bin T7" -- "Fuel Tank Level Sensor";
+    "Bin End 2" -- "Terminator 2";
+}
