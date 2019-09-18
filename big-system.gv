@@ -1,0 +1,131 @@
+graph Main {
+    rankdir=LR;
+    subgraph cluster_battery {
+        label="48V 900Ah Battery";
+        "Battery +";
+        "Battery -";
+    }
+    "Battery +" -- "Main Fuse";
+    "Main Fuse" -- "Positive Bus Bar";
+    "Battery -" -- "Negative Bus Bar";
+    "SCC1 Bus Bar +" -- "Panel 1" -- "Panel 2" -- "Panel 3" -- "SCC1 Bus Bar -";
+    "SCC1 Bus Bar +" -- "Panel 4" -- "Panel 5" -- "Panel 6" -- "SCC1 Bus Bar -";
+    "SCC1 Bus Bar +" -- "Panel 7" -- "Panel 8" -- "Panel 9" -- "SCC1 Bus Bar -";
+    "SCC2 Bus Bar +" -- "Panel 10" -- "Panel 11" -- "Panel 12" -- "SCC2 Bus Bar -";
+    "SCC2 Bus Bar +" -- "Panel 13" -- "Panel 14" -- "Panel 15" -- "SCC2 Bus Bar -";
+    "SCC2 Bus Bar +" -- "Panel 16" -- "Panel 17" -- "Panel 18" -- "SCC2 Bus Bar -";
+    "SCC3 Bus Bar +" -- "Panel 19" -- "Panel 20" -- "SCC3 Bus Bar -";
+    "SCC3 Bus Bar +" -- "Panel 21" -- "Panel 22" -- "SCC3 Bus Bar -";
+    "SCC3 Bus Bar +" -- "Panel 23" -- "Panel 24" -- "SCC3 Bus Bar -";
+    "SCC3 Bus Bar +" -- "Panel 25" -- "Panel 26" -- "SCC3 Bus Bar -";
+    "SCC1 Bus Bar +" -- "SCC1 To Panels +";
+    "SCC1 Bus Bar -" -- "SCC1 To Panels -";
+    "SCC2 Bus Bar +" -- "SCC2 To Panels +";
+    "SCC2 Bus Bar -" -- "SCC2 To Panels -";
+    "SCC3 Bus Bar +" -- "SCC3 To Panels +";
+    "SCC3 Bus Bar -" -- "SCC3 To Panels -";
+    subgraph cluster_solar_group_1 {
+        label="Solar Group 1";
+        subgraph cluster_scc1 {
+            label="Solar Charge Controller 1";
+            "SCC1 To Panels +";
+            "SCC1 To Panels -";
+            "SCC1 To Battery +"
+            "SCC1 To Battery -"
+        }
+        subgraph cluster_panel_series_1 {
+            label="Panel series string 1 -- 126V 11A"
+            "Panel 1";
+            "Panel 2";
+            "Panel 3";
+        }
+        subgraph cluster_panel_series_2 {
+            label="Panel series string 2 -- 126V 11A"
+            "Panel 4";
+            "Panel 5";
+            "Panel 6";
+        }
+        subgraph cluster_panel_series_3 {
+            label="Panel series string 3 -- 126V 11A"
+            "Panel 7";
+            "Panel 8";
+            "Panel 9";
+        }
+        "SCC1 100A Fuse"
+        "SCC1 Bus Bar +"
+        "SCC1 Bus Bar -"
+    }
+        subgraph cluster_solar_group_2 {
+        label="Solar Group 2";
+        subgraph cluster_scc2 {
+            label="Solar Charge Controller 2";
+            "SCC2 To Panels +";
+            "SCC2 To Panels -";
+            "SCC2 To Battery +"
+            "SCC2 To Battery -"
+        }
+        subgraph cluster_panel_series_4 {
+            label="Panel series string 4 -- 126V 11A"
+            "Panel 10";
+            "Panel 11";
+            "Panel 12";
+        }
+        subgraph cluster_panel_series_5 {
+            label="Panel series string 5 -- 126V 11A"
+            "Panel 13";
+            "Panel 14";
+            "Panel 15";
+        }
+        subgraph cluster_panel_series_6 {
+            label="Panel series string 6 -- 126V 11A"
+            "Panel 16";
+            "Panel 17";
+            "Panel 18";
+        }
+        "SCC2 100A Fuse"
+        "SCC2 Bus Bar +"
+        "SCC2 Bus Bar -"
+    }
+        subgraph cluster_solar_group_3 {
+        label="Solar Group 3";
+        subgraph cluster_scc3 {
+            label="Solar Charge Controller 3";
+            "SCC3 To Panels +";
+            "SCC3 To Panels -";
+            "SCC3 To Battery +"
+            "SCC3 To Battery -"
+        }
+        subgraph cluster_panel_series_7 {
+            label="Panel series string 7 -- 84V 11A"
+            "Panel 19";
+            "Panel 20";
+        }
+        subgraph cluster_panel_series_8 {
+            label="Panel series string 8 -- 84V 11A"
+            "Panel 21";
+            "Panel 22";
+        }
+        subgraph cluster_panel_series_9 {
+            label="Panel series string 9 -- 84V 11A"
+            "Panel 23";
+            "Panel 24";
+        }
+        subgraph cluster_panel_series_10 {
+            label="Panel series string 10 -- 84V 11A"
+            "Panel 25";
+            "Panel 26";
+        }
+        "SCC3 100A Fuse"
+        "SCC3 Bus Bar +"
+        "SCC3 Bus Bar -"
+    }
+    "SCC1 To Battery +" -- "SCC1 100A Fuse";
+    "SCC1 100A Fuse" -- "Positive Bus Bar";
+    "SCC1 To Battery -" -- "Negative Bus Bar";
+    "SCC2 To Battery +" -- "SCC2 100A Fuse";
+    "SCC2 100A Fuse" -- "Positive Bus Bar";
+    "SCC2 To Battery -" -- "Negative Bus Bar";
+    "SCC3 To Battery +" -- "SCC3 100A Fuse";
+    "SCC3 100A Fuse" -- "Positive Bus Bar";
+    "SCC3 To Battery -" -- "Negative Bus Bar";
+}
