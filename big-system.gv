@@ -5,8 +5,9 @@ graph Main {
         "Battery +";
         "Battery -";
     }
-    "Battery +" -- "Main Fuse";
-    "Main Fuse" -- "Positive Bus Bar";
+    "Main Breaker"[label="Main Breaker (400A?)"]
+    "Battery +" -- "Main Breaker";
+    "Main Breaker" -- "Positive Bus Bar";
     "Battery -" -- "Negative Bus Bar";
     "SCC1 Bus Bar +" -- "Panel 1" -- "Panel 2" -- "Panel 3" -- "SCC1 Bus Bar -";
     "SCC1 Bus Bar +" -- "Panel 4" -- "Panel 5" -- "Panel 6" -- "SCC1 Bus Bar -";
@@ -51,7 +52,7 @@ graph Main {
             "Panel 8";
             "Panel 9";
         }
-        "SCC1 100A Fuse"
+        "SCC1 100A Breaker"
         "SCC1 Bus Bar +"
         "SCC1 Bus Bar -"
     }
@@ -82,7 +83,7 @@ graph Main {
             "Panel 17";
             "Panel 18";
         }
-        "SCC2 100A Fuse"
+        "SCC2 100A Breaker"
         "SCC2 Bus Bar +"
         "SCC2 Bus Bar -"
     }
@@ -115,17 +116,67 @@ graph Main {
             "Panel 25";
             "Panel 26";
         }
-        "SCC3 100A Fuse"
+        "SCC3 100A Breaker"
         "SCC3 Bus Bar +"
         "SCC3 Bus Bar -"
     }
-    "SCC1 To Battery +" -- "SCC1 100A Fuse";
-    "SCC1 100A Fuse" -- "Positive Bus Bar";
+    "SCC1 To Battery +" -- "SCC1 100A Breaker";
+    "SCC1 100A Breaker" -- "Positive Bus Bar";
     "SCC1 To Battery -" -- "Negative Bus Bar";
-    "SCC2 To Battery +" -- "SCC2 100A Fuse";
-    "SCC2 100A Fuse" -- "Positive Bus Bar";
+    "SCC2 To Battery +" -- "SCC2 100A Breaker";
+    "SCC2 100A Breaker" -- "Positive Bus Bar";
     "SCC2 To Battery -" -- "Negative Bus Bar";
-    "SCC3 To Battery +" -- "SCC3 100A Fuse";
-    "SCC3 100A Fuse" -- "Positive Bus Bar";
+    "SCC3 To Battery +" -- "SCC3 100A Breaker";
+    "SCC3 100A Breaker" -- "Positive Bus Bar";
     "SCC3 To Battery -" -- "Negative Bus Bar";
+    subgraph cluster_ac_distribution_panel {
+        label="AC Distribution Panel"
+        "ACDP In Hot";
+        "ACDP In Neutral";
+        "ACDP In Ground";
+    }
+    subgraph cluster_quattro_1 {
+        label="Quattro 1";
+        subgraph cluster_q1_acin1 {
+            label="Q1 AC In 1"
+            "Q1 AC In 1 Hot";
+            "Q1 AC In 1 Neutral";
+            "Q1 AC In 1 Ground";
+        }
+        subgraph cluster_q1_acout1 {
+            label="Q1 AC Out 1"
+            "Q1 AC Out 1 Hot";
+            "Q1 AC Out 1 Neutral";
+            "Q1 AC Out 1 Ground";
+        }
+        "Q1 To Battery +" -- "Q1 200A Breaker";
+        "Q1 To Battery -";
+        "Q1 VE.Bus Port";
+    }
+    subgraph cluster_quattro_2 {
+        label="Quattro 2";
+        subgraph cluster_q1_acout1 {
+            label="Q2 AC Out 1"
+            "Q2 AC Out 1 Hot";
+            "Q2 AC Out 1 Neutral";
+            "Q2 AC Out 1 Ground";
+        }
+        "Q2 To Battery +" -- "Q2 200A Breaker";
+        "Q2 To Battery -";
+        "Q2 VE.Bus Port";
+    }
+    "Q1 AC Out 1 Hot" -- "ACDP In Hot";
+    "Q1 AC Out 1 Neutral" -- "ACDP In Neutral";
+    "Q1 AC Out 1 Ground" -- "ACDP In Ground";
+    "Q2 AC Out 1 Hot" -- "ACDP In Hot";
+    "Q2 AC Out 1 Neutral" -- "ACDP In Neutral";
+    "Q2 AC Out 1 Ground" -- "ACDP In Ground";
+    "Shore Power" -- "Q1 AC In 1 Hot";
+    "Shore Power" -- "Q1 AC In 1 Neutral";
+    "Shore Power" -- "Q1 AC In 1 Ground";
+    "Q1 200A Breaker" -- "Positive Bus Bar";
+    "Q1 To Battery -" -- "Negative Bus Bar";
+    "Q2 200A Breaker" -- "Positive Bus Bar";
+    "Q2 To Battery -" -- "Negative Bus Bar";
+    "Q1 VE.Bus Port" -- "Q2 VE.Bus Port"[label="Ethernet cable"]
 }
