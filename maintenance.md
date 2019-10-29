@@ -2,6 +2,9 @@
 
 Oil, oil filter, and fuel filter changes are mostly described in the log, not here.
 
+- 2019-10
+  - Replaced some rubber rests for lazarette lids
+  - Had diver clean prop and a couple spots on hull, zincs were reported to be 75% remaining so not replaced
 - 2019-09
   - Rebedded port salon hatch
   - Added bracing under floor above raw water pumps and in front of kitchen drawers
