@@ -1,6 +1,6 @@
 # Maintenance history #
 
-Oil, oil filter, and fuel filter changes are mostly described in the log, not here.
+Maintenance dependent on engine hours such as oil, oil filter, and fuel filter changes are mostly described in the log, not here.
 
 - 2019-10
   - Replaced some rubber rests for lazarette lids
