@@ -1,5 +1,6 @@
 graph Main {
     rankdir=LR;
+    ranksep=5;
     subgraph cluster_battery {
         label="48V 900Ah Battery";
         "Battery +";
@@ -129,23 +130,23 @@ graph Main {
     "SCC3 To Battery +" -- "SCC3 100A Breaker";
     "SCC3 100A Breaker" -- "Positive Bus Bar";
     "SCC3 To Battery -" -- "Negative Bus Bar";
-    subgraph cluster_ac_distribution_panel {
-        label="AC Distribution Panel"
-        "ACDP In Hot";
-        "ACDP In Neutral";
-        "ACDP In Ground";
-    }
     subgraph cluster_quattro_1 {
         label="Quattro 1";
         subgraph cluster_q1_acin1 {
             label="Q1 AC In 1"
-            "Q1 AC In 1 Hot";
+            "Q1 AC In 1 Line";
             "Q1 AC In 1 Neutral";
             "Q1 AC In 1 Ground";
         }
+        subgraph cluster_q1_acin2 {
+            label="Q1 AC In 2"
+            "Q1 AC In 2 Line";
+            "Q1 AC In 2 Neutral";
+            "Q1 AC In 2 Ground";
+        }
         subgraph cluster_q1_acout1 {
             label="Q1 AC Out 1"
-            "Q1 AC Out 1 Hot";
+            "Q1 AC Out 1 Line";
             "Q1 AC Out 1 Neutral";
             "Q1 AC Out 1 Ground";
         }
@@ -155,9 +156,21 @@ graph Main {
     }
     subgraph cluster_quattro_2 {
         label="Quattro 2";
+        subgraph cluster_q2_acin1 {
+            label="Q1 AC In 1"
+            "Q2 AC In 1 Line";
+            "Q2 AC In 1 Neutral";
+            "Q2 AC In 1 Ground";
+        }
+        subgraph cluster_q2_acin2 {
+            label="Q1 AC In 2"
+            "Q2 AC In 2 Line";
+            "Q2 AC In 2 Neutral";
+            "Q2 AC In 2 Ground";
+        }
         subgraph cluster_q1_acout1 {
             label="Q2 AC Out 1"
-            "Q2 AC Out 1 Hot";
+            "Q2 AC Out 1 Line";
             "Q2 AC Out 1 Neutral";
             "Q2 AC Out 1 Ground";
         }
@@ -165,15 +178,45 @@ graph Main {
         "Q2 To Battery -";
         "Q2 VE.Bus Port";
     }
-    "Q1 AC Out 1 Hot" -- "ACDP In Hot";
+    subgraph cluster_shore_power {
+        label="Shore Power";
+        "SP Line 1";
+        "SP Line 2";
+        "SP Neutral";
+        "SP Ground";
+    }
+    subgraph cluster_generator {
+        label="Generator";
+        "Gen Line 1";
+        "Gen Line 2";
+        "Gen Neutral";
+        "Gen Ground";
+    }
+    subgraph cluster_ac_distribution_panel {
+        label="AC Distribution Panel"
+        "ACDP In Line 1";
+        "ACDP In Line 2";
+        "ACDP In Neutral";
+        "ACDP In Ground";
+    }
+    "Q1 AC Out 1 Line" -- "ACDP In Line 1";
     "Q1 AC Out 1 Neutral" -- "ACDP In Neutral";
     "Q1 AC Out 1 Ground" -- "ACDP In Ground";
-    "Q2 AC Out 1 Hot" -- "ACDP In Hot";
+    "Q2 AC Out 1 Line" -- "ACDP In Line 2";
     "Q2 AC Out 1 Neutral" -- "ACDP In Neutral";
     "Q2 AC Out 1 Ground" -- "ACDP In Ground";
-    "Shore Power" -- "Q1 AC In 1 Hot";
-    "Shore Power" -- "Q1 AC In 1 Neutral";
-    "Shore Power" -- "Q1 AC In 1 Ground";
+    "SP Line 1" -- "Q1 AC In 1 Line";
+    "SP Neutral" -- "Q1 AC In 1 Neutral";
+    "SP Ground" -- "Q1 AC In 1 Ground";
+    "SP Line 2" -- "Q2 AC In 1 Line";
+    "SP Neutral" -- "Q2 AC In 1 Neutral";
+    "SP Ground" -- "Q2 AC In 1 Ground";
+    "Gen Line 1" -- "Q1 AC In 2 Line";
+    "Gen Neutral" -- "Q1 AC In 2 Neutral";
+    "Gen Ground" -- "Q1 AC In 2 Ground";
+    "Gen Line 2" -- "Q2 AC In 2 Line";
+    "Gen Neutral" -- "Q2 AC In 2 Neutral";
+    "Gen Ground" -- "Q2 AC In 2 Ground";
     "Q1 200A Breaker" -- "Positive Bus Bar";
     "Q1 To Battery -" -- "Negative Bus Bar";
     "Q2 200A Breaker" -- "Positive Bus Bar";
