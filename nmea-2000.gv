@@ -1,7 +1,7 @@
 graph NMEA2000 {
     subgraph cluster_nav_station_t_connectors {
         label="Nav Station T Connectors"
-        "NS End 1" -- "NS T1" -- "NS T2" -- "NS T3"-- "NS T4" -- "NS T5" -- "NS T6" -- "NS End 2";
+        "NS End 1" -- "NS T1" -- "NS T2" -- "NS T3"-- "NS T4" -- "NS T5" -- "NS T6" -- "NS T7" -- "NS T8" -- "NS End 2";
     }
     subgraph cluster_binnacle_t_connectors {
         label="Binnacle T Connectors"
@@ -14,6 +14,8 @@ graph NMEA2000 {
     "NS T4" -- "VHF Radio";
     "NS T5" -- "AIS Radio";
     "NS T6" -- "Wind Sensor";
+    "NS T7" -- "Victron ColorControl GX";
+    "NS T8" -- "USB Gateway";
     "NS End 2" -- "Bin End 1";
     "Bin T1" -- "Chartplotter";
     "Bin T2" -- "Wind Display";
