@@ -3,8 +3,11 @@
 A collection of many things about our boat.
 
 ## Logs ##
+[2020 log](log-2020.md)
+
 [2019 log](log-2019.md)
-I keep a log of all of our travels, including engine hours, sailing hours, and miles travelled.  It is in a simple table in this Markdown file.
+
+I keep a log of all of our travels, including engine hours, sailing hours, and miles travelled.  They are simple tables in a Markdown file for each year.
 
 ## Systems diagrams ##
 I have created diagrams of the electrical and plumbing systems.  They are pretty complex so it helps to have these for troubleshooting some issues.  After 20+ years the systems are substantially different from when they were documented by the factory.
