@@ -1,10 +1,14 @@
 # Maintenance history #
 
 Maintenance dependent on engine hours such as oil, oil filter, and fuel filter changes are mostly described in the log, not here.
+- 2020-05
+  - Replace inside shower
+  - Replace insides of both shore power receptacles
 - 2020-04
   - Replace bearings and sprocket on steering wheel shaft
   - Replace bilge pump float switch
   - Recharge AC refrigerant
+  - Restich straps on jib clew
 - 2019-12
   - Sewed new bimini/dodger, added new stainless bow
   - Replaced anchor windlass footswitch
